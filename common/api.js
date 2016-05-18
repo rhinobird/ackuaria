@@ -9,6 +9,7 @@ var statsRegistry = require('./mdb/statsRegistry');
 var sessionsRegistry = require('./mdb/sessionsRegistry');
 var roomsRegistry = require('./mdb/roomsRegistry');
 var N = require('./../nuve');
+var Notifications = require('./notifications')
 
 GLOBAL.config = config || {};
 
@@ -179,6 +180,9 @@ API.api = {
                         var stream = search(streamID, session.streams);
                         stream.finalPublish = finalTimestamp;
                     }
+
+                    // Notify stream unpublish
+                    Notifications.notifyEvent('unpublish', event);
 
                     if (API.rooms[roomID] !== undefined) {
                         var indexRoom = API.rooms[roomID].streams.indexOf(streamID);
