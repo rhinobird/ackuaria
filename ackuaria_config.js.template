@@ -40,6 +40,7 @@ config.nuve.superserviceKey = ''; // default value: ''
 config.notifications = {};
 config.notifications.https = false;
 config.notifications.hostname = ''; // hostname without protocol
+config.notifications.auth = 'user:pass';
 config.notifications.port = '80';
 config.notifications.endpoints = {
   unpublish: '/unpublish' // include `slash`

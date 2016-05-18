@@ -9,6 +9,7 @@ function optionsForRequest(endpoint) {
     return {
         hostname: config.notifications.hostname,
         port: config.notifications.port,
+        auth: config.notifications.auth,
         path: endpoint,
         method: 'POST'
     };
