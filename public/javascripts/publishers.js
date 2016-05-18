@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io.connect();
 var view_type = "grid";
 
 $(document).ready(function(){

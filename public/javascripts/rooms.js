@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io.connect();
 var show_grid = true;
 
 $(document).ready(function(){
