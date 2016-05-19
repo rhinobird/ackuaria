@@ -61,9 +61,6 @@ API.api = {
                     event.userID = userID;
                     event.userName = userName;
 
-                    // Notify stream unpublish
-                    Notifications.notifyEvent('publish', event);
-
                     if (API.rooms[roomID] === undefined) {
                         N.API.getRoom(roomID, function(room){
                             API.rooms[roomID] = {
@@ -165,6 +162,10 @@ API.api = {
                         userName: userName,
                         subscribers: []
                     };
+
+                    // Notify stream publish
+                    Notifications.notifyEvent('publish', event);
+
                     break;
 
                 case "unpublish":
