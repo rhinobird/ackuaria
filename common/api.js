@@ -61,6 +61,8 @@ API.api = {
                     event.userID = userID;
                     event.userName = userName;
 
+                    // Notify stream unpublish
+                    Notifications.notifyEvent('publish', event);
 
                     if (API.rooms[roomID] === undefined) {
                         N.API.getRoom(roomID, function(room){
