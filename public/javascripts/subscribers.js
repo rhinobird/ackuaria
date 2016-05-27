@@ -1,4 +1,4 @@
-var socket = io.connect();
+var socket = io();
 var show_grid = true;
 var audio, video;
 var subscribers = {};
