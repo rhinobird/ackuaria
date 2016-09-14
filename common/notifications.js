@@ -23,6 +23,9 @@ function performRequest(options, params) {
         'Content-Length': Buffer.byteLength(data)
     };
 
+    log.info('Notifying endpoint: ', options);
+    log.info('With params:', params);
+
     var request = connection.request(options, function (res) {
         log.info('Notifications: Response satatus', res.statusCode);
         res.setEncoding('utf8');
@@ -43,7 +46,6 @@ API.notifyEvent = function (eventName, params) {
     if (!endpoint)
       return;
     var options = optionsForRequest(endpoint, params);
-    log.info('Notifications: Notifying event `'+eventName+'` to endpoint `' + endpoint);
     performRequest(options, params);
 }
 
