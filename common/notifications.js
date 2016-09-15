@@ -42,6 +42,7 @@ function performRequest(options, params) {
 }
 
 API.notifyEvent = function (eventName, params) {
+    log.info('Notifying Event: ' + eventName);
     var endpoint = config.notifications.endpoints[eventName];
     if (!endpoint)
       return;
